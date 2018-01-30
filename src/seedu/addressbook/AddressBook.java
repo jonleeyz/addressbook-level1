@@ -204,6 +204,19 @@ public class AddressBook {
      * ====================================================================
      */
 
+    // no-varargs implementation
+    private static void showWelcomeMessage() {
+        String[] welcomeMessageComponents = {DIVIDER, DIVIDER, VERSION,
+                MESSAGE_WELCOME, DIVIDER};
+        showToUser(welcomeMessageComponents);
+    }
+
+    private static void showResultToUser(String result) {
+        String[] resultMessageComponents = {result, DIVIDER};
+        showToUser(resultMessageComponents);
+    }
+
+    /* varargs implementation
     private static void showWelcomeMessage() {
         showToUser(DIVIDER, DIVIDER, VERSION, MESSAGE_WELCOME, DIVIDER);
     }
@@ -211,6 +224,7 @@ public class AddressBook {
     private static void showResultToUser(String result) {
         showToUser(result, DIVIDER);
     }
+    */
 
     /*
      * NOTE : =============================================================
@@ -268,10 +282,20 @@ public class AddressBook {
     /**
      * Displays the goodbye message and exits the runtime.
      */
+    // no-varargs implementation
+    private static void exitProgram() {
+        String[] exitMessageComponents = {MESSAGE_GOODBYE,
+                DIVIDER, DIVIDER};
+        showToUser(exitMessageComponents);
+        System.exit(0);
+    }
+
+    /* varargs implementation
     private static void exitProgram() {
         showToUser(MESSAGE_GOODBYE, DIVIDER, DIVIDER);
         System.exit(0);
     }
+    */
 
     /**
      * Sets up the storage based on the default file.
@@ -598,11 +622,25 @@ public class AddressBook {
     /**
      * Shows a message to the user
      */
+
+    // no-varargs implementation
+    private static void showToUser(String message) {
+        System.out.println(LINE_PREFIX + message);
+    }
+
+    private static void showToUser(String[] message) {
+        for (String m : message) {
+            System.out.println(LINE_PREFIX + m);
+        }
+    }
+
+    /* varargs implementation
     private static void showToUser(String... message) {
         for (String m : message) {
             System.out.println(LINE_PREFIX + m);
         }
     }
+    */
 
     /**
      * Shows the list of persons to the user.
