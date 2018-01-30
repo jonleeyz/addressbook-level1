@@ -128,22 +128,6 @@ public class AddressBook {
 
     private static final String DIVIDER = "===================================================";
 
-    // no longer needed, as the person object is now implemented as a HashMap<String, String>
-
-    /* We use a String array to store details of a single person.
-     * The constants given below are the indexes for the different data elements of a person
-     * used by the internal String[] storage format.
-     * For example, a person's name is stored as the 0th element in the array.
-     * PERSON_DATA_COUNT: The number of data elements for a single person.
-
-    private static final int PERSON_DATA_INDEX_NAME = 0;
-    private static final int PERSON_DATA_INDEX_PHONE = 1;
-    private static final int PERSON_DATA_INDEX_EMAIL = 2;
-    private static final int PERSON_DATA_COUNT = 3;
-    */
-
-
-
     /**
      * Offset required to convert between 1-indexing and 0-indexing.COMMAND_
      */
@@ -870,15 +854,6 @@ public class AddressBook {
         person.put("name", name);
         person.put("phone", phone);
         person.put("email", email);
-
-        // previous String[] implementation of a person object
-        /*
-        final String[] person = new String[PERSON_DATA_COUNT];
-        person[PERSON_DATA_INDEX_NAME] = name;
-        person[PERSON_DATA_INDEX_PHONE] = phone;
-        person[PERSON_DATA_INDEX_EMAIL] = email;
-        */
-
         return person;
     }
 
