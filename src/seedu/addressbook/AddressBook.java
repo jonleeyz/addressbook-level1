@@ -639,7 +639,6 @@ public class AddressBook {
      */
     private static String getIndexedPersonListElementMessage(int visibleIndex, HashMap<String, String> person) {
         return String.format(MESSAGE_DISPLAY_LIST_ELEMENT_INDEX, visibleIndex)
-                + getMessageForFormattedPersonData(person);
     }
 
     /**
@@ -918,8 +917,8 @@ public class AddressBook {
      * @return if cannot decode any: empty Optional
      *         else: Optional containing decoded persons
      */
-    private static Optional<ArrayList<
-            HashMap<String, String>>> decodePersonsFromStrings(ArrayList<String> encodedPersons) {
+    private static Optional<ArrayList<HashMap<String, String>>> decodePersonsFromStrings(
+            ArrayList<String> encodedPersons) {
         final ArrayList<HashMap<String, String>> decodedPersons = new ArrayList<>();
         for (String encodedPerson : encodedPersons) {
             final Optional<HashMap<String, String>> decodedPerson = decodePersonFromString(encodedPerson);
