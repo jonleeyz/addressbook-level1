@@ -522,17 +522,40 @@ public class AddressBook {
 
     /**
      * Checks validity of edit person argument string's format.
+     * Valid argument string should break down into three components in this order:
+     *  1) int: index of person
+     *  2) String: attribute of person to be changed
+     *  3) String: new value of attribute
      *
      * @param rawArgs raw command args string for the edit person command
      * @return whether the input args string is valid
      */
     private static boolean isEditPersonArgsValid(String rawArgs) {
-        try {
-            final int extractedIndex = Integer.parseInt(rawArgs.trim()); // use standard libraries to parse
-            return extractedIndex >= DISPLAYED_INDEX_OFFSET;
-        } catch (NumberFormatException nfe) {
+        final ArrayList<String> processedArgs = splitByWhitespace(rawArgs);
+        final int extractedIndex = Integer.parseInt(processedArgs.get(0));
+        final String attributeToBeChanged = processedArgs.get(1);
+        final String newAttributeValue = processedArgs.get(2);
+
+        final boolean isExtractedIndexValid = extractedIndex >= DISPLAYED_INDEX_OFFSET;
+        final boolean isValidAttributeToEdit = attributeToBeChanged.equals("name")
+                || attributeToBeChanged.equals("phone")
+                || attributeToBeChanged.equals("email");
+        final boolean isNewAttributeValueValid;
+        switch(attributeToBeChanged) {
+        case "name":
+            isNewAttributeValueValid = isPersonNameValid(newAttributeValue);
+            break;
+        case "phone":
+            isNewAttributeValueValid = isPersonPhoneValid(newAttributeValue);
+            break;
+        case "email":
+            isNewAttributeValueValid = isPersonEmailValid(newAttributeValue);
+            break;
+        default:
             return false;
         }
+
+        return isExtractedIndexValid && isValidAttributeToEdit && isNewAttributeValueValid;
     }
 
     /**
