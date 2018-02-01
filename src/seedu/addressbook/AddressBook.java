@@ -497,7 +497,7 @@ public class AddressBook {
      */
     private static String executeEditPerson(String commandArgs) {
         ArrayList<String> editPersonArgs = extractEditPersonArgs(commandArgs);
-        if (!isEditPersonArgsValid(exitPersonArgs)) {
+        if (!isEditPersonArgsValid(editPersonArgs)) {
             return getMessageForInvalidCommandInput(COMMAND_EDIT_WORD, getUsageInfoForEditCommand());
         }
         final int targetVisibleIndex = extractTargetIndexFromEditPersonArgs(commandArgs);
