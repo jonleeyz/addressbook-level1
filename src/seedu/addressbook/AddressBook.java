@@ -543,7 +543,7 @@ public class AddressBook {
      */
     private static ArrayList<String> extractEditPersonArgs(String rawArgs) {
         try {
-            return splitByWhitespace(rawArgs);
+            return splitByWhitespace(rawArgs, 3); // need exactly 3 parameters
         } catch (PatternSyntaxException pse) {
             return new ArrayList<>();
         }
