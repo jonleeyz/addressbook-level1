@@ -500,12 +500,16 @@ public class AddressBook {
         if (!isEditPersonArgsValid(editPersonArgs)) {
             return getMessageForInvalidCommandInput(COMMAND_EDIT_WORD, getUsageInfoForEditCommand());
         }
-        final int targetVisibleIndex = extractTargetIndexFromEditPersonArgs(commandArgs);
+        final int targetVisibleIndex = extractTargetIndexFromEditPersonArgs(editPersonArgs);
+        final String attributeToBeChanged = extractAttributeToBeChangedFromEditPersonArgs(editPersonArgs);
+        final String attributeNewValue = extractAttributeNewValueFromEditPersonArgs(editPersonArgs);
+
         if (!isDisplayIndexValidForLastPersonListingView(targetVisibleIndex)) {
             return MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
         }
         final HashMap<String, String> targetInModel = getPersonByLastVisibleIndex(targetVisibleIndex);
-        return editPersonFromAddressBook(targetInModel) ? getMessageForSuccessfulEdit(targetInModel) // success
+        return editPersonFromAddressBook(targetInModel, attributeToBeChanged, attributeNewValue)
+                ? getMessageForSuccessfulEdit(targetInModel) // success
                 : MESSAGE_PERSON_NOT_IN_ADDRESSBOOK; // not found
     }
 
