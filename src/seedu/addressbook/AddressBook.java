@@ -496,7 +496,8 @@ public class AddressBook {
      * @return feedback display message for the operation result
      */
     private static String executeEditPerson(String commandArgs) {
-        if (!isEditPersonArgsValid(commandArgs)) {
+        ArrayList<String> editPersonArgs = extractEditPersonArgs(commandArgs);
+        if (!isEditPersonArgsValid(exitPersonArgs)) {
             return getMessageForInvalidCommandInput(COMMAND_EDIT_WORD, getUsageInfoForEditCommand());
         }
         final int targetVisibleIndex = extractTargetIndexFromEditPersonArgs(commandArgs);
@@ -553,9 +554,13 @@ public class AddressBook {
      *
      * @param rawArgs raw command args string for the edit person command
      * @return whether the input args string is valid
+     * @TODO: update so names of more than 1 word can be used
      */
-    private static boolean isEditPersonArgsValid(String rawArgs) {
-        final ArrayList<String> processedArgs = splitByWhitespace(rawArgs);
+    private static boolean isEditPersonArgsValid(ArrayList<String> processedArgs) {
+        if (processedArgs.size() != 3) {
+            return false;
+        }
+
         final int extractedIndex = Integer.parseInt(processedArgs.get(0));
         final String attributeToBeChanged = processedArgs.get(1);
         final String newAttributeValue = processedArgs.get(2);
