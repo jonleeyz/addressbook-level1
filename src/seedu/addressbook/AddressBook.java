@@ -664,7 +664,7 @@ public class AddressBook {
      * @return successful edit person feedback message
      */
     private static String getMessageForSuccessfulEdit(HashMap<String, String> editedPerson) {
-        return String.format(MESSAGE_DELETE_PERSON_SUCCESS, getMessageForFormattedPersonData(editedPerson));
+        return String.format(MESSAGE_EDIT_PERSON_SUCCESS, getMessageForFormattedPersonData(editedPerson));
     }
 
     /**
