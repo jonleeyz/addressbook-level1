@@ -613,6 +613,26 @@ public class AddressBook {
     }
 
     /**
+     * Extracts the attribute to be changed from the processed edit person args string
+     *
+     * @param editPersonArgs raw command args string for the edit person command
+     * @return extracted attribute string
+     */
+    private static int extractAttributeToBeChangedFromEditPersonArgs(ArrayList<String> editPersonArgs) {
+        return editPersonArgs.get(1);
+    }
+
+    /**
+     * Extracts the attribute's new value from the processed edit person args string
+     *
+     * @param editPersonArgs raw command args string for the edit person command
+     * @return extracted new value string
+     */
+    private static int extractAttributeNewValueFromEditPersonArgs(ArrayList<String> editPersonArgs) {
+        return editPersonArgs.get(2);
+    }
+
+    /**
      * Extracts the target's index from the raw delete person args string
      *
      * @param rawArgs raw command args string for the delete person command
