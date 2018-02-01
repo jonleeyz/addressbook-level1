@@ -925,8 +925,10 @@ public class AddressBook {
      * @return true if the given person was found, extracted and deleted in the model and a new
      *  person object with edited attributes is added.
      */
-    private static boolean editPersonFromAddressBook(HashMap<String, String> exactPerson) {
-        final boolean changed = ALL_PERSONS.remove(exactPerson);
+    private static boolean editPersonFromAddressBook(HashMap<String, String> exactPerson,
+                                                     String attribute,
+                                                     String newValue) {
+        final boolean changed = exactPerson.replace(attribute, newValue) != null;
         if (changed) {
             savePersonsToFile(getAllPersonsInAddressBook(), storageFilePath);
         }
