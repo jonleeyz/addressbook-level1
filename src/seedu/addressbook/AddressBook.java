@@ -551,6 +551,16 @@ public class AddressBook {
     }
 
     /**
+     * Extracts the target's index from the raw edit person args string
+     *
+     * @param rawArgs raw command args string for the edit person command
+     * @return extracted index
+     */
+    private static int extractTargetIndexFromEditPersonArgs(String rawArgs) {
+        return Integer.parseInt(rawArgs.trim());
+    }
+
+    /**
      * Extracts the target's index from the raw delete person args string
      *
      * @param rawArgs raw command args string for the delete person command
