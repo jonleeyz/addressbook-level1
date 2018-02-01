@@ -603,13 +603,13 @@ public class AddressBook {
     }
 
     /**
-     * Extracts the target's index from the raw edit person args string
+     * Extracts the target's index from the processed edit person args string
      *
-     * @param rawArgs raw command args string for the edit person command
+     * @param editPersonArgs raw command args string for the edit person command
      * @return extracted index
      */
-    private static int extractTargetIndexFromEditPersonArgs(String rawArgs) {
-        return Integer.parseInt(rawArgs.trim());
+    private static int extractTargetIndexFromEditPersonArgs(ArrayList<String> editPersonArgs) {
+        return Integer.parseInt(editPersonArgs.get(0));
     }
 
     /**
