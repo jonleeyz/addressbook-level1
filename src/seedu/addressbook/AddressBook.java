@@ -558,7 +558,6 @@ public class AddressBook {
      *
      * @param rawArgs raw command args string for the edit person command
      * @return whether the input args string is valid
-     * @TODO: update so names of more than 1 word can be used
      */
     private static boolean isEditPersonArgsValid(ArrayList<String> processedArgs) {
         if (processedArgs.size() != 3) {
