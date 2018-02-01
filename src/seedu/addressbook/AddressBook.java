@@ -540,7 +540,7 @@ public class AddressBook {
     private static ArrayList<String> extractEditPersonArgs(String rawArgs) {
         try {
             return splitByWhitespace(rawArgs);
-        } catch (PatternSyntaxException) {
+        } catch (PatternSyntaxException pse) {
             return new ArrayList<>();
         }
     }
