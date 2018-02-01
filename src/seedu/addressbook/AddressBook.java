@@ -581,6 +581,17 @@ public class AddressBook {
     }
 
     /**
+     * Constructs a feedback message for a successful edit person command execution.
+     *
+     * @see #executeEditPerson(String)
+     * @param editedPerson successfully edited
+     * @return successful edit person feedback message
+     */
+    private static String getMessageForSuccessfulEdit(HashMap<String, String> editedPerson) {
+        return String.format(MESSAGE_DELETE_PERSON_SUCCESS, getMessageForFormattedPersonData(deletedPerson));
+    }
+
+    /**
      * Constructs a feedback message for a successful delete person command execution.
      *
      * @see #executeDeletePerson(String)
