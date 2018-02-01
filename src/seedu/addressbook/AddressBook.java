@@ -618,7 +618,7 @@ public class AddressBook {
      * @param editPersonArgs raw command args string for the edit person command
      * @return extracted attribute string
      */
-    private static int extractAttributeToBeChangedFromEditPersonArgs(ArrayList<String> editPersonArgs) {
+    private static String extractAttributeToBeChangedFromEditPersonArgs(ArrayList<String> editPersonArgs) {
         return editPersonArgs.get(1);
     }
 
@@ -628,7 +628,7 @@ public class AddressBook {
      * @param editPersonArgs raw command args string for the edit person command
      * @return extracted new value string
      */
-    private static int extractAttributeNewValueFromEditPersonArgs(ArrayList<String> editPersonArgs) {
+    private static String extractAttributeNewValueFromEditPersonArgs(ArrayList<String> editPersonArgs) {
         return editPersonArgs.get(2);
     }
 
