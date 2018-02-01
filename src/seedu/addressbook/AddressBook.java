@@ -847,12 +847,13 @@ public class AddressBook {
     }
 
     /**
-     * Deletes the specified person from the addressbook if it is inside. Saves any changes to storage file.
+     * Edit the specified person from the addressbook if it is inside. Saves any changes to storage file.
      *
-     * @param exactPerson the actual person inside the address book (exactPerson == the person to delete in the full list)
-     * @return true if the given person was found and deleted in the model
+     * @param exactPerson the actual person inside the address book (exactPerson == the person to edit in the full list)
+     * @return true if the given person was found, extracted and deleted in the model and a new
+     *  person object with edited attributes is added.
      */
-    private static boolean deletePersonFromAddressBook(HashMap<String, String> exactPerson) {
+    private static boolean editPersonFromAddressBook(HashMap<String, String> exactPerson) {
         final boolean changed = ALL_PERSONS.remove(exactPerson);
         if (changed) {
             savePersonsToFile(getAllPersonsInAddressBook(), storageFilePath);
