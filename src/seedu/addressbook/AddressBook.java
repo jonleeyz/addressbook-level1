@@ -117,6 +117,12 @@ public class AddressBook {
     private static final String COMMAND_LIST_DESC = "Displays all persons as a list with index numbers.";
     private static final String COMMAND_LIST_EXAMPLE = COMMAND_LIST_WORD;
 
+    private static final String COMMAND_EDIT_WORD = "edit";
+    private static final String COMMAND_EDIT_DESC = "Edits an attribute of a person identified by the index number "
+                                                    + "used in the last find/list call.";
+    private static final String COMMAND_EDIT_PARAMETERS = "INDEX ATTRIBUTE NEW_VALUE";
+    private static final String COMMAND_EDIT_EXAMPLE = COMMAND_EDIT_WORD + " 1 name Ryan";
+
     private static final String COMMAND_DELETE_WORD = "delete";
     private static final String COMMAND_DELETE_DESC = "Deletes a person identified by the index number used in "
                                                     + "the last find/list call.";
