@@ -528,6 +528,23 @@ public class AddressBook {
     }
 
     /**
+     * Processes edit person argument string and splits it by whitespace.
+     * Functionally similar to splitByWhitespace but abstracted to a higher level
+     * to handle the PatternSyntaxException.
+     *
+     * @param rawArgs raw command args string for the edit person command
+     * @return an ArrayList<String> containing the processed arguments or an empty ArrayList<String>
+     * if a PatternSyntaxException is thrown.
+     */
+    private static ArrayList<String> extractEditPersonArgs(String rawArgs) {
+        try {
+            return splitByWhitespace(rawArgs);
+        } catch (PatternSyntaxException) {
+            return new ArrayList<>();
+        }
+    }
+
+    /**
      * Checks validity of edit person argument string's format.
      * Valid argument string should break down into three components in this order:
      *  1) int: index of person
